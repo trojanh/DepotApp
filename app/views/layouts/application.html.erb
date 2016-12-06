@@ -12,13 +12,23 @@
 <%= @page_title || "Pragmatic Bookshelf" %>
 </div>
 
+  <div id="columns">
+<div id="side">
 <ul>
 <li><a href="/">Home</a></li>
 <li><a href="http://www..../faq">Questions</a></li>
 <li><a href="http://www..../news">News</a></li>
 <li><a href="http://www..../contact">Contact</a></li>
+<% if @cart %>
+<div id="cart" <% if @cart.line_items.empty? %> style="display: none" <% end %>
+>
+<%= render @cart %>
+<% end %>
+</div>
 </ul>
 </div>
+
+
 <div id="main">
 <%= yield %>
 </div>
